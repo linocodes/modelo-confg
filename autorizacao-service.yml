@@ -10,7 +10,7 @@ security:
 
 eureka:  
   instance:
-    hostname: conciliador-server.com
+    hostname: localhost
     port: 8761
   client:
     serviceUrl:
@@ -18,23 +18,20 @@ eureka:
 
 spring:
   application:
-    name: conciliador-autenticacao
-      
+    name: security-service
   datasource:
-    url: jdbc:sqlserver://192.168.20.222:1433;databaseName=Conciliador
-    username: homologacao
-    password: ch@rtconcili@dor
-    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    
-
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/company-structure-spring-security-oauth2-authorities
+    username: postgres
+    password: postgres 
   jpa:
     hibernate:
       ddl-auto: none
     show-sql: true
     database: postgresql
-    database-platform:  org.hibernate.dialect.SQLServer2012Dialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     open-in-view: false
-    generate-ddl: false
+    generate-ddl: false    
     properties:
       hibernate:
         naming:
@@ -62,5 +59,6 @@ logging:
     org.springframework.web: INFO
     org.springframework.security: DEBUG
     br.com.conciliasolucoes: DEBUG
-  file: security-service.log
+  file: autorizacao-service.log
+      
       
