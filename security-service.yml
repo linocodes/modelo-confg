@@ -16,20 +16,18 @@ spring:
     name: conciliador-autenticacao
       
   datasource:
+    driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/company-structure-spring-security-oauth2-authorities
     username: postgres
-    password: postgres
-    driverClassName: org.hibernate.dialect.PostgreSQL95Dialect
-    
-
+    password: postgres 
   jpa:
     hibernate:
       ddl-auto: none
     show-sql: true
     database: postgresql
-    database-platform:  org.hibernate.dialect.PostgreSQL95Dialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     open-in-view: false
-    generate-ddl: false
+    generate-ddl: false    
     properties:
       hibernate:
         naming:
