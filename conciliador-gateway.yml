@@ -1,0 +1,42 @@
+server:  
+  port: ${PORT:8080}
+
+eureka:  
+  instance:
+    hostname: conciliador-server.com
+    port: 9000
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/   
+
+      
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 20000
+
+ribbon:
+  ReadTimeout: 20000
+  ConnectTimeout: 20000
+
+zuul:
+  ignoredServices: '*'
+  host:
+    connect-timeout-millis: 20000
+    socket-timeout-millis: 20000
+
+  routes:
+    auth-service:
+        path: /uaa/**
+        url: http://conciliador-server.com:9999
+        stripPrefix: false
+        sensitiveHeaders:
+    autorizacao-service:
+        path: /autorizacao/**
+        url: http://conciliador-server.com:8081
+        stripPrefix: false
+        sensitiveHeaders:        
+
