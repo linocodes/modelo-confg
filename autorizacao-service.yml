@@ -21,7 +21,7 @@ spring:
     name: security-service
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/company-structure-spring-security-oauth2-authorities
+    url: jdbc:postgresql://localhost:5432/exemplo
     username: postgres
     password: postgres 
   jpa:
