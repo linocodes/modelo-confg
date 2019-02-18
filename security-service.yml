@@ -10,27 +10,17 @@ eureka:
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
       
-security:
-  oauth2:
-    client:
-      access-token-validity-seconds: 1800
-      authorized-grant-types: password,refresh_token
-      client-id: coderef
-      client-secret: $2a$10$p9Pk0fQNAQSesI4vuvKA0OZanDD2
-      resource-ids: resources
-      scope: read,write
-      
 spring:
   application:
     name: security-service
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/company-structure-spring-security-oauth2-authorities
+    url: jdbc:postgresql://localhost:5432/exemplo
     username: postgres
     password: postgres
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     show-sql: true
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
