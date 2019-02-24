@@ -1,17 +1,12 @@
 server:
-  servlet:
-    context-path: /uaa
   port: ${PORT:9999}
-eureka:
-  instance:
-    hostname: localhost
-    port: 8761
-  client:
-    registerWithEureka: true
-    fetchRegistry: true
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
-      
+  contextPath: /uaa
+
+security:
+  user:
+    password: password
+  ignored: /css/**,/js/**,/favicon.ico,/webjars/**
+
 spring:
   application:
     name: security-service
