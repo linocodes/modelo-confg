@@ -1,6 +1,22 @@
 server:
+  servlet:
+    context-path: /uaa
   port: ${PORT:9999}
-  contextPath: /uaa
+eureka:
+  instance:
+    hostname: localhost
+    port: 8761
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+    
+security:
+  oauth2:
+    resource:
+      filter-order: 3
+  signing-key: MaYzkSjmkzPC57L
+  encoding-strength: 256
+  security-realm: Concilia Solucoes Negociador
 
 spring:
   application:
